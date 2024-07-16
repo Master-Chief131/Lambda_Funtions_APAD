@@ -10,6 +10,10 @@ if [[ ! -f "$CONFIG_FILE" ]]; then
   exit 1
 fi
 
+# Bucket S3 específico
+S3_BUCKET="codepipeline-us-west-2-795468598716"
+S3_PATH="Pipeline_APAD_Lambda"
+
 # Iterate over each function in the configuration file
 for FUNCTION in $(jq -c '.functions[]' "$CONFIG_FILE"); do
   NAME=$(echo "$FUNCTION" | jq -r '.name')
@@ -39,10 +43,10 @@ for FUNCTION in $(jq -c '.functions[]' "$CONFIG_FILE"); do
   cd /tmp/lambda/"$NAME"/ && zip -rq ../"$NAME".zip .
 
   # Upload the zip file to S3
-  aws s3 cp /tmp/lambda/"$NAME".zip s3://your-bucket/lambda_functions/"$NAME"/"$NAME".zip
+  aws s3 cp /tmp/lambda/"$NAME".zip s3://"$S3_BUCKET"/"$S3_PATH"/"$NAME".zip
 
   # Update the Lambda function code
-  aws lambda update-function-code --function-name "$NAME" --s3-bucket your-bucket --s3-key lambda_functions/"$NAME"/"$NAME".zip
+  aws lambda update-function-code --function-name "$NAME" --s3-bucket "$S3_BUCKET" --s3-key "$S3_PATH"/"$NAME".zip
 
   # Clean up temporary files (optional but recommended)
   rm -rf /tmp/lambda/"$NAME"
