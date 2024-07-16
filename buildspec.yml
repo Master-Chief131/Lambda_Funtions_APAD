@@ -1,0 +1,16 @@
+version: 0.2
+env:
+  variables:
+    TestVar: "123"
+  git-credential-helper: yes
+phases:
+  pre_build:
+    commands:
+      - echo "Pre build command"
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build post_build on `date`
+      - bash buildspec_update_lambda_code.sh
