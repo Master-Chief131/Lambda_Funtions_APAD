@@ -19,10 +19,10 @@
       "env_path": "/Test-LAMBDA/update_reservation"
     },
     {
-      "name": "get_reservation",
-      "path": "get_reservation",
-      "main_file": "get_reservation.py",
-      "env_path": "/Test-LAMBDA/get_reservation"
+      "name": "view_reservations",
+      "path": "view_reservations",
+      "main_file": "view_reservations.py",
+      "env_path": "/Test-LAMBDA/view_reservations"
     }
   ]
 }
