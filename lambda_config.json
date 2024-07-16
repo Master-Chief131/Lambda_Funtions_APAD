@@ -1,0 +1,28 @@
+{
+  "functions": [
+    {
+      "name": "create_reservation",
+      "path": "create_reservation",
+      "main_file": "create_reservation.py",
+      "env_path": "/Test-LAMBDA/create_reservation"
+    },
+    {
+      "name": "delete_reservation",
+      "path": "delete_reservation",
+      "main_file": "delete_reservation.py",
+      "env_path": "/Test-LAMBDA/delete_reservation"
+    },
+    {
+      "name": "update_reservation",
+      "path": "update_reservation",
+      "main_file": "update_reservation.py",
+      "env_path": "/Test-LAMBDA/update_reservation"
+    },
+    {
+      "name": "get_reservation",
+      "path": "get_reservation",
+      "main_file": "get_reservation.py",
+      "env_path": "/Test-LAMBDA/get_reservation"
+    }
+  ]
+}
