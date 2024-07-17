@@ -24,3 +24,4 @@ def lambda_handler(event, context):
                 'Content-Type': 'application/json'
             }
         }
+
